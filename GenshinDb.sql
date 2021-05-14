@@ -33,4 +33,17 @@ create table Weapons
 		CharacterId int not null foreign key references Characters(Id),
 			WeaponType varchar(20) not null
 	);
+*/
 /*
+use GenshinImpactDb
+
+insert into Characters
+	(Name, Region)
+	values ('Diluc', 'Mondstadt');
+*/
+/*
+use GenshinImpactDb;
+
+insert into Characters(Name, Region)
+	values ('Ganyu','Liyue');
+*/
