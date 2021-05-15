@@ -70,7 +70,7 @@ insert into Characters(Name, Location, Ranking)
 insert into Characters(Name,Region,Location,Ranking)
 	values ('Ganyu','Liyue','Liyue Harbor',5);
 
-
+commit transaction;
 
 
 
