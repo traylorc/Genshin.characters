@@ -8,3 +8,5 @@ join Elements e
 on c.Id = e.CharacterId
 join Weapons w
 on c.Id = w.CharacterId;
+
+select * from Characters

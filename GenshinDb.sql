@@ -16,7 +16,8 @@ use GenshinImpactDb
 	create table Characters
 		(Id int primary key identity(1,1),
 			Name varchar(30) not null,
-				Region varchar(50) not null default 'Mondstadt',
+				Region varchar(50) null default 'Mondstadt',
+					Location varchar(80) null,
 					Ranking int not null default 4
 					
 									
@@ -45,21 +46,29 @@ create table Weapons
 
 use GenshinImpactDb
 
-insert into Characters(Name,Ranking)
-	values ('Albedo',5);
+Begin Transaction;
 
-insert into Characters(Name)
-	values ('Amber');
+insert into Characters(Name,Location, Ranking)
+	values ('Albedo','Wyrmrest Valley',5);
 
-insert into Characters(Name)
-	values ('Barbara');
+insert into Characters(Name, Location)
+	values ('Amber','Mondstadt');
 
-insert into Characters
-	(Name, Ranking)
-	values ('Diluc', 5);
+insert into Characters(Name, Location)
+	values ('Barbara','Mondstadt');
 
-insert into Characters(Name, Region,Ranking)
-	values ('Ganyu','Liyue',5);
+insert into Characters(Name,Region,Location)
+	values ('Beidou', 'Inazuma','Guyun Stone Forest');
+
+insert into Characters(Name, Location)
+	values ('Bennett','Mondstadt');
+
+
+insert into Characters(Name, Location, Ranking)
+	values ('Diluc', 'Dawn Winery', 5);
+
+insert into Characters(Name,Region,Location,Ranking)
+	values ('Ganyu','Liyue','Liyue Harbor',5);
 
 
 
