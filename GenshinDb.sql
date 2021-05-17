@@ -59,7 +59,6 @@ insert into Characters(Name, Location)
 
 insert into Characters(Name,Region,Location)
 	values ('Beidou', 'Inazuma','Guyun Stone Forest');
-
 insert into Characters(Name, Location)
 	values ('Bennett','Mondstadt');
 
@@ -72,5 +71,12 @@ insert into Characters(Name,Region,Location,Ranking)
 
 commit transaction;
 
+
+select c.Name, c.Region, e.Element, w.WeaponType
+	from Characters c
+		join Elements e
+			on c.id = e.characterId
+		join Weapons w
+			on c.id = w.characterId
 
 
