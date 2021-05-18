@@ -1,6 +1,6 @@
 -- Create Database for new project
 
-
+/*
 use master;
 
 drop database GenshinImpactDb;
@@ -9,7 +9,7 @@ create database GenshinImpactDb;
 
 use GenshinImpactDb;
 
-
+*/
 -- Create table for Characters
 
 use GenshinImpactDb
@@ -18,8 +18,8 @@ use GenshinImpactDb
 			Name varchar(30) not null,
 				Region varchar(50) null default 'Mondstadt',
 					Location varchar(80) null,
-					Ranking int not null default 4
-					
+						Ranking int not null default 4
+							
 									
 		);
 
@@ -28,8 +28,7 @@ use GenshinImpactDb
 
 create table Elements
 	(Id int primary key identity(1,1),
-		CharacterId int not null foreign key references Characters(Id),
-			Element varchar(20) not null, 
+			Element varchar(20) not null
 
 	);
 
@@ -44,7 +43,13 @@ create table Weapons
 	);
 
 
-use GenshinImpactDb
+
+
+alter table Characters
+	add ElementsId int null foreign key references Elements(Id);
+
+
+
 
 Begin Transaction;
 
@@ -62,7 +67,6 @@ insert into Characters(Name,Region,Location)
 insert into Characters(Name, Location)
 	values ('Bennett','Mondstadt');
 
-
 insert into Characters(Name, Location, Ranking)
 	values ('Diluc', 'Dawn Winery', 5);
 
@@ -71,12 +75,48 @@ insert into Characters(Name,Region,Location,Ranking)
 
 commit transaction;
 
+select * from Elements
+select * from Characters
 
-select c.Name, c.Region, e.Element, w.WeaponType
-	from Characters c
-		join Elements e
-			on c.id = e.characterId
-		join Weapons w
-			on c.id = w.characterId
+
+
+insert into Characters(Name,Location,Ranking)
+	values ('Jean','Mondstadt',5);
+
+
+
+
+
+
+insert into  Elements
+	(Element)
+		values
+	('Anemo');
+
+insert into  Elements
+	(Element)
+		values
+	('Geo');
+
+insert into  Elements
+	(Element)
+		values
+	('Cryo');
+
+insert into  Elements
+	(Element)
+		values
+	('Pyro');
+
+insert into  Elements
+	(Element)
+		values
+	('Electro');
+
+insert into  Elements
+	(Element)
+		values
+	('Hydro');
+
 
 
